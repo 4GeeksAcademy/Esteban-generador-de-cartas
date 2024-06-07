@@ -1,11 +1,29 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+document
+  .getElementById("generate-card")
+  .addEventListener("click", generateCard);
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+function generateCard() {
+  const suits = ["♠", "♥", "♦", "♣"];
+  const values = [
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "J",
+    "Q",
+    "K",
+    "A"
+  ];
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+  const randomSuit = suits[Math.floor(Math.random() * suits.length)];
+  const randomValue = values[Math.floor(Math.random() * values.length)];
+
+  document.getElementById("top-left").innerText = randomValue + randomSuit;
+  document.getElementById("card-suit").innerText = randomSuit;
+  document.getElementById("bottom-right").innerText = randomValue + randomSuit;
+}
